@@ -2,413 +2,6 @@
 :root {
     --font-primary: 'Poppins', sans-serif;
     --font-display: 'Righteous', cursive;
-
-    /* Light Theme Colors (Default) */
-    --bg-color: #FDFBF8;
-    --text-color: #2c2c2c;
-    --heading-color: #000000;
-    --card-bg-color: #FFFFFF;
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-    --primary-btn-bg: #1a1a1a;
-    --primary-btn-text: #ffffff;
-    --primary-btn-border: #1a1a1a;
-    --secondary-btn-bg: transparent;
-    --secondary-btn-text: #1a1a1a;
-    --secondary-btn-border: #1a1a1a;
-    --link-active-color: #000000;
-    --link-active-border: #000000;
-}
-
-/* Dark Theme Colors */
-body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #d1d1d1;
-    --heading-color: #ffffff;
-    --card-bg-color: #2c2c2c;
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    --primary-btn-bg: #ffffff;
-    --primary-btn-text: #1a1a1a;
-    --primary-btn-border: #ffffff;
-    --secondary-btn-bg: transparent;
-    --secondary-btn-text: #ffffff;
-    --secondary-btn-border: #ffffff;
-    --link-active-color: #ffffff;
-    --link-active-border: #ffffff;
-}
-
-/* --- General Styles --- */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-primary);
-    margin: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.page-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* --- Header --- */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 0;
-}
-
-.logo a {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    text-decoration: none;
-    color: var(--heading-color);
-}
-
-#theme-toggle {
-    background: none;
-    border: 2px solid var(--text-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease;
-}
-
-#theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-/* --- Hero Section --- */
-.hero-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    min-height: 80vh;
-    flex-wrap: wrap;
-}
-
-.hero-content {
-    flex: 1;
-    min-width: 300px;
-}
-
-.intro-text {
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.main-heading {
-    font-family: var(--font-display);
-    font-size: 5rem;
-    color: var(--heading-color);
-    margin: 0;
-    line-height: 1;
-}
-
-.sub-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0.5rem 0 1.5rem 0;
-    display: inline-block;
-    border: 2px solid var(--text-color);
-    padding: 0.2rem 0.5rem;
-}
-
-.description {
-    max-width: 450px;
-    line-height: 1.6;
-}
-
-.social-links {
-    margin: 1.5rem 0;
-}
-
-.social-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    border: 2px solid var(--text-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.action-buttons .btn {
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-right: 1rem;
-    transition: all 0.2s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-btn-bg);
-    color: var(--primary-btn-text);
-    border: 3px solid var(--primary-btn-border);
-}
-
-.btn-secondary {
-    background-color: var(--secondary-btn-bg);
-    color: var(--secondary-btn-text);
-    border: 2px solid var(--secondary-btn-border);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.hero-illustration {
-    flex: 1;
-    position: relative;
-    text-align: center;
-    min-width: 300px;
-}
-
-.hero-illustration img {
-    max-width: 100%;
-    height: auto;
-}
-
-.stats-card {
-    background-color: var(--card-bg-color);
-    color: var(--text-color);
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    position: absolute;
-    text-align: center;
-    font-size: 0.9rem;
-}
-.stats-card strong {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--heading-color);
-}
-.happy-clients { bottom: 15%; left: 0; }
-.videos-published { bottom: 5%; right: 0; }
-
-/* --- Services Section --- */
-.services-section {
-    padding: 4rem 2rem;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--heading-color);
-    margin-bottom: 3rem;
-    letter-spacing: 2px;
-}
-
-.services-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.service-card {
-    background-color: var(--card-bg-color);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: var(--card-shadow);
-    text-align: left;
-    max-width: 320px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.service-card h3 {
-    font-size: 1.2rem;
-    color: var(--heading-color);
-}
-
-.service-card h4 {
-    font-size: 1rem;
-    font-weight: normal;
-    color: var(--text-color);
-    margin-top: -10px;
-    margin-bottom: 20px;
-}
-
-.service-card p {
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-.card-dots {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
-    color: var(--text-color);
-    opacity: 0.3;
-    line-height: 0.5;
-    font-size: 2rem;
-    letter-spacing: 2px;
-}
-.card-dots::before {
-    content: '... \A ...'; /* Using a line break in content */
-    white-space: pre;
-}
-
-.slider-nav {
-    margin-top: 3rem;
-}
-
-.slider-nav .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.slider-nav .dot.active {
-    background-color: var(--heading-color);
-}
-
-
-/* --- Portfolio Section --- NEW STYLES ADDED HERE */
-.portfolio-section {
-    padding: 4rem 2rem;
-}
-
-.portfolio-filters {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.filter-link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.filter-link:hover {
-    color: var(--link-active-color);
-}
-
-.filter-link.active {
-    color: var(--link-active-color);
-    border-bottom-color: var(--link-active-border);
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.portfolio-card {
-    background-color: var(--card-bg-color);
-    border-radius: 20px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.card-image {
-    position: relative;
-}
-
-.card-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.image-overlay-text {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.card-content {
-    padding: 1.5rem;
-}
-
-.card-category {
-    color: #3B82F6; /* A nice blue that works on both light/dark themes */
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.card-content h3 {
-    margin: 0.5rem 0;
-    color: var(--heading-color);
-    font-size: 1.4rem;
-}
-
-.card-content p {
-    margin: 0;
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-/* --- Add/Update these styles in your Portfolio Section CSS --- */
-
-/* --- Portfolio Section --- */
-.portfolio-filters { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
-.filter-link { text-decoration: none; color: var(--text-color); font-weight: bold; padding: 0.5rem 0; border-bottom: 3px solid transparent; }
-.filter-link.active { color: var(--link-active-color); border-bottom-color: var(--link-active-border); }
-.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.portfolio-card {
-    background-color: var(--card-bg-color);
-    border-radius: 20px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    /* Animation for when items appear */
-    transition: transform 0.3s ease, opacity 0.4s ease;
-}
-/* THIS IS THE FIX: Use display: none to remove hidden items from the layout */
-.portfolio-card.hide {
-    display: none;
-}
-.portfolio-card iframe { width: 100%; height: auto; aspect-ratio: 16 / 9; border: none; display: block; }
-.portfolio-card h3 { color: var(--heading-color); padding: 1rem 1.5rem; margin: 0; font-size: 1.2rem; }
-/* FONT IMPORTS */
-:root {
-    --font-primary: 'Poppins', sans-serif;
-    --font-display: 'Righteous', cursive;
-
     /* Light Theme Colors (Default) */
     --bg-color: #FDFBF8;
     --text-color: #2c2c2c;
@@ -430,7 +23,7 @@ body {
 /* Dark Theme Colors */
 body.dark-mode {
     --bg-color: #1a1a1a;
-    --text-color: #d1d1d1;
+    --text-color: #ffffff;
     --heading-color: #ffffff;
     --card-bg-color: #2c2c2c;
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -442,10 +35,22 @@ body.dark-mode {
     --secondary-btn-border: #ffffff;
     --link-active-color: #ffffff;
     --link-active-border: #ffffff;
-    --subtitle-span-bg: #3730A3;
+    --subtitle-span-bg: #f47004;
     --timeline-color: #444444;
 }
+/* --- Add this to your Hero Section styles, or at the end of the file --- */
 
+.social-links svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* This makes the icon inherit the color from its parent link */
+    
+}
+/* Add this rule to your style.css file inside the Hero Section styles */
+
+.action-buttons {
+    margin-top: 2rem; /* This adds the gap you need */
+}
 /* --- General Styles --- */
 body {
     background-color: var(--bg-color);
@@ -468,14 +73,16 @@ body {
     align-items: center;
     padding: 2rem 0;
 }
-
 .logo a {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
     text-decoration: none;
-    color: var(--heading-color);
+    display: flex;
+    align-items: center;
 }
-
+/* FIX 1: This rule controls the logo size */
+.logo img {
+    height: 125px; /* Set to your requested size */
+    width: auto;
+}
 #theme-toggle {
     background: none;
     border: 2px solid var(--text-color);
@@ -491,14 +98,7 @@ body {
 }
 
 /* --- Hero Section --- */
-.hero-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    min-height: 80vh;
-    flex-wrap: wrap;
-}
-
+.hero-section { display: flex; align-items: center; gap: 2rem; min-height: 80vh; flex-wrap: wrap; }
 .hero-content { flex: 1; min-width: 300px; }
 .main-heading { font-family: var(--font-display); font-size: 5rem; color: var(--heading-color); margin: 0; line-height: 1; }
 .sub-heading { font-size: 1.5rem; margin: 0.5rem 0 1.5rem 0; display: inline-block; border: 2px solid var(--text-color); padding: 0.2rem 0.5rem; }
@@ -509,7 +109,7 @@ body {
 .btn:hover { transform: translateY(-3px); }
 .hero-illustration { flex: 1; position: relative; text-align: center; min-width: 300px; }
 .hero-illustration img { max-width: 100%; height: auto; }
-.stats-card { background-color: var(--card-bg-color); color: var(--text-color); padding: 1rem; border-radius: 50px; box-shadow: var(--card-shadow); position: absolute; text-align: center; font-size: 0.9rem; }
+.stats-card { background-color: var(--card-bg-color); color: var(--text-color); padding: 1rem; border-radius: 12px; box-shadow: var(--card-shadow); position: absolute; text-align: center; font-size: 0.9rem; }
 .stats-card strong { display: block; font-size: 1.5rem; color: var(--heading-color); }
 .happy-clients { bottom: 15%; left: 0; }
 .videos-published { bottom: 5%; right: 0; }
@@ -519,20 +119,71 @@ body {
 .services-section, .portfolio-section, .testimonials-section, .contact-section { padding: 4rem 2rem; }
 
 /* --- Services Section --- */
-.services-container { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-.service-card { background-color: var(--card-bg-color); border-radius: 20px; padding: 2rem; box-shadow: var(--card-shadow); text-align: left; max-width: 320px; }
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: var(--card-bg-color);
+    border-radius: 20px;
+    padding: 2rem;
+    /* Removed the default box-shadow here to avoid conflict with the glow */
+    text-align: left;
+    flex: 1 1 300px; /* This makes the cards arrange in a responsive row */
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure box-shadow transitions */
+
+    /* NEW: Glowing border effect */
+    position: relative; /* Needed for pseudo-element positioning if you wanted a more complex glow */
+    border: 1px solid transparent; /* A thin transparent border to prevent content shift when glow appears */
+    
+    /* Subtle initial glow for dark mode, no initial glow for light mode */
+    box-shadow: 
+        var(--card-shadow),
+        0 0 0px 0px rgba(255, 112, 67, 0.0); /* Initial subtle glow, will animate on hover */
+}
+
+/* NEW: Apply glow on hover */
+.service-card:hover {
+    transform: translateY(-5px);
+    /* The orange gradient's mid-point color for the glow */
+    box-shadow: 
+        var(--card-shadow), /* Keep the existing card shadow */
+        0 0 15px 5px rgba(255, 112, 67, 0.6), /* Stronger inner glow with color */
+        0 0 30px 10px rgba(255, 112, 67, 0.3); /* Wider, softer outer glow */
+    border-color: rgba(255, 112, 67, 0.5); /* Make the border slightly visible on hover */
+}
+
+/* --- Keep the rest of your service card styles unchanged --- */
 .service-card h3 { color: var(--heading-color); }
 .service-card h4 { font-weight: normal; margin-top: -10px; margin-bottom: 20px; }
 
 /* --- Portfolio Section --- */
 .portfolio-filters { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
-.filter-link { text-decoration: none; color: var(--text-color); font-weight: bold; padding: 0.5rem 0; border-bottom: 3px solid transparent; }
+.filter-link { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 1rem; padding: 0.5rem 0; border-bottom: 3px solid transparent; transition: all 0.3s ease; }
+.filter-link:hover { color: var(--link-active-color); }
 .filter-link.active { color: var(--link-active-color); border-bottom-color: var(--link-active-border); }
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-.portfolio-card { background-color: var(--card-bg-color); border-radius: 20px; box-shadow: var(--card-shadow); overflow: hidden; transition: transform 0.3s ease; }
-.portfolio-card:hover { transform: translateY(-5px); }
-.portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 10; object-fit: cover; }
-.portfolio-card h3 { color: var(--heading-color); padding: 1rem 1.5rem; margin: 0; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.portfolio-card {
+    background-color: var(--card-bg-color);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+}
+.portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+
+/* FIX 2: This is the only change needed for the portfolio filter to work correctly */
+.portfolio-card.hide {
+    display: none;
+}
+.portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;}
+.portfolio-card h3 { margin: 1rem 1.5rem; color: var(--heading-color); font-size: 1.4rem; }
+.portfolio-link { text-decoration: none; }
 
 /* --- Testimonials Section --- */
 .testimonials-section .section-title { margin-bottom: 1rem; }
@@ -568,13 +219,16 @@ body {
 .rights-reserved { margin: 0; font-size: 0.8rem; letter-spacing: 1px; }
 
 /* --- Media Queries for Responsiveness --- */
+@media (max-width: 1024px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
     .main-heading { font-size: 3.5rem; }
-    .hero-section { text-align: center; }
+    .hero-section { text-align: center; flex-direction: column; }
     .hero-content { order: 2; }
     .hero-illustration { order: 1; margin-bottom: 2rem; }
-    .stats-card { position: static; margin: 0.5rem auto; }
+    .stats-card { position: static; margin: 0.5rem auto; max-width: 300px; }
     .contact-section .section-title, .contact-section .section-subtitle { text-align: center; }
     .contact-body { flex-direction: column; }
+    .portfolio-grid { grid-template-columns: 1fr; }
 }
-

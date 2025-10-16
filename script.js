@@ -27,48 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyTheme();
 
-    // --- SERVICES SLIDER LOGIC ---
-    const slider = document.getElementById('services-slider');
-    const dotsContainer = document.getElementById('slider-dots');
-    
-    if (slider && dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.dot');
-        dotsContainer.addEventListener('click', (e) => {
-            if (e.target.matches('.dot')) {
-                const slideToGo = e.target.dataset.slide;
-                const transformValue = slideToGo * -50;
-                slider.style.transform = `translateX(${transformValue}%)`;
-                dots.forEach(dot => dot.classList.remove('active'));
-                e.target.classList.add('active');
-            }
-        });
-    }
-
-    // --- NEW: PORTFOLIO FILTER LOGIC ---
+    // --- PORTFOLIO FILTER LOGIC ---
     const filtersContainer = document.getElementById('portfolio-filters');
-    const portfolioItems = document.querySelectorAll('#portfolio-grid .portfolio-card');
+    const portfolioLinks = document.querySelectorAll('#portfolio-grid .portfolio-link');
 
-    if (filtersContainer && portfolioItems.length > 0) {
+    if (filtersContainer && portfolioLinks.length > 0) {
         filtersContainer.addEventListener('click', (e) => {
-            e.preventDefault(); // Stop the link from jumping the page
-
-            // Only run if a filter link was clicked
+            // Check if the clicked element is a filter link
             if (e.target.matches('.filter-link')) {
+                e.preventDefault(); // Stop the link's default behavior (jumping to top)
+
                 const filterValue = e.target.getAttribute('data-filter');
 
-                // Update active state on filter links
+                // Update which filter link is marked as 'active'
                 filtersContainer.querySelector('.active').classList.remove('active');
                 e.target.classList.add('active');
 
-                // Loop through all portfolio items
-                portfolioItems.forEach(item => {
-                    const itemCategory = item.getAttribute('data-category');
-                    
-                    // If the filter is 'all' OR the item's category matches the filter, show it. Otherwise, hide it.
+                // Loop through each portfolio item (the <a> tags)
+                portfolioLinks.forEach(link => {
+                    const card = link.querySelector('.portfolio-card'); // Find the article inside the link
+                    const itemCategory = card.getAttribute('data-category'); // Get its category
+
+                    // Compare the filter value with the item's category
+                    // This is the crucial part that makes the logic work
                     if (filterValue === 'all' || itemCategory === filterValue) {
-                        item.classList.remove('hide');
+                        link.style.display = 'block'; // Show the link
                     } else {
-                        item.classList.add('hide');
+                        link.style.display = 'none'; // Hide the link
                     }
                 });
             }
