@@ -44,7 +44,7 @@ body.dark-mode {
     width: 20px;
     height: 20px;
     fill: currentColor; /* This makes the icon inherit the color from its parent link */
-    
+
 }
 /* Add this rule to your style.css file inside the Hero Section styles */
 
@@ -59,6 +59,8 @@ body {
     margin: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
 
 .page-wrapper, .contact-content-wrapper {
     max-width: 1200px;
@@ -97,14 +99,32 @@ body {
     transition: transform 0.2s ease;
 }
 
-/* --- Hero Section --- */
-.hero-section { display: flex; align-items: center; gap: 2rem; min-height: 80vh; flex-wrap: wrap; }
+/* --- Hero Section (Using your provided values) --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 26rem; /* Your value */
+    min-height: -80vh; /* Your value - Note: Negative vh is likely invalid CSS */
+    flex-wrap: wrap;
+}
 .hero-content { flex: 1; min-width: 300px; }
 .main-heading { font-family: var(--font-display); font-size: 5rem; color: var(--heading-color); margin: 0; line-height: 1; }
 .sub-heading { font-size: 1.5rem; margin: 0.5rem 0 1.5rem 0; display: inline-block; border: 2px solid var(--text-color); padding: 0.2rem 0.5rem; }
 .social-links a { text-decoration: none; color: var(--text-color); font-size: 1.5rem; margin-right: 1rem; border: 2px solid var(--text-color); border-radius: 50%; width: 40px; height: 40px; display: inline-flex; justify-content: center; align-items: center; }
-.action-buttons .btn { padding: 12px 28px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-right: 1rem; transition: all 0.2s ease; }
-.btn-primary { background-color: var(--primary-btn-bg); color: var(--primary-btn-text); border: 3px solid var(--primary-btn-border); }
+.action-buttons .btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 1rem; /* This creates the gap */
+    margin-bottom: 0.5rem; /* Allows nice wrapping on very small screens */
+    transition: all 0.2s ease;
+    display: inline-block; /* ADDED THIS */
+}
+/* Remove margin from the last button if needed */
+ .action-buttons .btn:last-child {
+     margin-right: 0;
+ }.btn-primary { background-color: var(--primary-btn-bg); color: var(--primary-btn-text); border: 3px solid var(--primary-btn-border); }
 .btn-secondary { background-color: var(--secondary-btn-bg); color: var(--secondary-btn-text); border: 2px solid var(--secondary-btn-border); }
 .btn:hover { transform: translateY(-3px); }
 .hero-illustration { flex: 1; position: relative; text-align: center; min-width: 300px; }
@@ -130,60 +150,173 @@ body {
     background-color: var(--card-bg-color);
     border-radius: 20px;
     padding: 2rem;
-    /* Removed the default box-shadow here to avoid conflict with the glow */
     text-align: left;
-    flex: 1 1 300px; /* This makes the cards arrange in a responsive row */
+    flex: 1 1 300px;
     max-width: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure box-shadow transitions */
-
-    /* NEW: Glowing border effect */
-    position: relative; /* Needed for pseudo-element positioning if you wanted a more complex glow */
-    border: 1px solid transparent; /* A thin transparent border to prevent content shift when glow appears */
-    
-    /* Subtle initial glow for dark mode, no initial glow for light mode */
-    box-shadow: 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid transparent;
+    box-shadow:
         var(--card-shadow),
-        0 0 0px 0px rgba(255, 112, 67, 0.0); /* Initial subtle glow, will animate on hover */
+        0 0 0px 0px rgba(255, 112, 67, 0.0);
 }
 
-/* NEW: Apply glow on hover */
 .service-card:hover {
     transform: translateY(-5px);
-    /* The orange gradient's mid-point color for the glow */
-    box-shadow: 
-        var(--card-shadow), /* Keep the existing card shadow */
-        0 0 15px 5px rgba(255, 112, 67, 0.6), /* Stronger inner glow with color */
-        0 0 30px 10px rgba(255, 112, 67, 0.3); /* Wider, softer outer glow */
-    border-color: rgba(255, 112, 67, 0.5); /* Make the border slightly visible on hover */
+    box-shadow:
+        var(--card-shadow),
+        0 0 15px 5px rgba(255, 112, 67, 0.6),
+        0 0 30px 10px rgba(255, 112, 67, 0.3);
+    border-color: rgba(255, 112, 67, 0.5);
 }
 
-/* --- Keep the rest of your service card styles unchanged --- */
 .service-card h3 { color: var(--heading-color); }
 .service-card h4 { font-weight: normal; margin-top: -10px; margin-bottom: 20px; }
 
-/* --- Portfolio Section --- */
-.portfolio-filters { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
-.filter-link { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 1rem; padding: 0.5rem 0; border-bottom: 3px solid transparent; transition: all 0.3s ease; }
-.filter-link:hover { color: var(--link-active-color); }
-.filter-link.active { color: var(--link-active-color); border-bottom-color: var(--link-active-border); }
-.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.portfolio-card {
-    background-color: var(--card-bg-color);
-    border-radius: 20px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
-}
-.portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
 
-/* FIX 2: This is the only change needed for the portfolio filter to work correctly */
-.portfolio-card.hide {
+/* --- NEW PORTFOLIO STYLES START --- */
+.portfolio-section {
+    background-repeat: no-repeat;
+    padding-top: 2rem;
+    position: relative;
+    overflow: hidden; /* Hide cards moving outside view during transition */
+}
+
+.portfolio-section .section-title {
+    margin-bottom: 1rem;
+}
+
+/* === FILTER STYLES === */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.filter-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+.filter-link:hover {
+    color: var(--link-active-color);
+}
+.filter-link.active {
+    color: var(--link-active-color);
+    border-bottom-color: var(--link-active-border);
+}
+
+/* === DESKTOP STACK STYLES (Default for all sizes) === */
+.portfolio-grid {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    perspective: 1500px;
+    padding: 2rem 0;
+    position: relative; /* Needed for arrow positioning on mobile */
+}
+
+.portfolio-link {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 450px;
+    max-width: 90vw;
+    aspect-ratio: 16/10;
+    text-decoration: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    /* --- CRITICAL: Smooth transition for transform --- */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease;
+    position: relative;
+
+    /* Default state for cards outside the main 5 positions */
+    /* JS will add a position class to make it visible */
+    transform: translateY(60px) scale(0.6);
+    opacity: 0;
+    z-index: 1;
+}
+
+.portfolio-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: var(--card-bg-color);
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-card h3 {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* --- STACKING POSITIONS --- */
+/* These classes define the fanned-out stack */
+
+/* Far Left */
+.stack-pos-1 {
+    transform: translateX(-360px) translateY(60px) scale(0.75);
+    z-index: 7;
+    opacity: 1;
+}
+
+/* Mid-Left */
+.stack-pos-2 {
+    transform: translateX(-220px) translateY(30px) scale(0.85);
+    z-index: 8;
+    opacity: 1;
+}
+
+/* Center */
+.stack-pos-3 {
+    transform: translateY(0) scale(1);
+    z-index: 10;
+    opacity: 1;
+}
+
+/* Mid-Right */
+.stack-pos-4 {
+    transform: translateX(220px) translateY(30px) scale(0.85);
+    z-index: 8;
+    opacity: 1;
+}
+
+/* Far Right */
+.stack-pos-5 {
+    transform: translateX(360px) translateY(60px) scale(0.75);
+    z-index: 7;
+    opacity: 1;
+}
+
+
+/* --- Arrow Navigation Styles --- */
+/* Hide arrows - they are not needed for auto-rotate */
+.portfolio-navigation {
     display: none;
 }
-.portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;}
-.portfolio-card h3 { margin: 1rem 1.5rem; color: var(--heading-color); font-size: 1.4rem; }
-.portfolio-link { text-decoration: none; }
+.portfolio-arrow {
+    display: none;
+}
+/* --- NEW PORTFOLIO STYLES END --- */
+
 
 /* --- Testimonials Section --- */
 .testimonials-section .section-title { margin-bottom: 1rem; }
@@ -219,9 +352,24 @@ body {
 .rights-reserved { margin: 0; font-size: 0.8rem; letter-spacing: 1px; }
 
 /* --- Media Queries for Responsiveness --- */
+/* Adjust stack positions for smaller screens */
 @media (max-width: 1024px) {
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .stack-pos-1 {
+        transform: translateX(-280px) translateY(50px) scale(0.8);
+    }
+    .stack-pos-2 {
+        transform: translateX(-150px) translateY(25px) scale(0.9);
+    }
+    /* Center stays the same */
+    .stack-pos-4 {
+        transform: translateX(150px) translateY(25px) scale(0.9);
+    }
+    .stack-pos-5 {
+        transform: translateX(280px) translateY(50px) scale(0.8);
+    }
 }
+
+/* Mobile View Styles */
 @media (max-width: 768px) {
     .main-heading { font-size: 3.5rem; }
     .hero-section { text-align: center; flex-direction: column; }
@@ -230,5 +378,109 @@ body {
     .stats-card { position: static; margin: 0.5rem auto; max-width: 300px; }
     .contact-section .section-title, .contact-section .section-subtitle { text-align: center; }
     .contact-body { flex-direction: column; }
-    .portfolio-grid { grid-template-columns: 1fr; }
+
+    /* === MOBILE SLIDER STYLES OVERRIDE STACK === */
+    .portfolio-grid {
+        display: block; /* Change from grid */
+        position: relative; /* Positioning context for arrows */
+        min-height: 0;
+        width: 90vw;
+        max-width: 350px;
+        height: calc( (90vw / 16) * 10 );
+        max-height: calc( (350px / 16) * 10 ); /* ~219px */
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .portfolio-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        /* Override stack styles */
+        transform: translateY(0) scale(0.95) !important;
+        opacity: 0 !important;
+        z-index: 5;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    /* Override stack position classes */
+    .stack-pos-1,
+    .stack-pos-2,
+    .stack-pos-3,
+    .stack-pos-4,
+    .stack-pos-5 {
+        transform: translateY(0) scale(0.95) !important;
+        opacity: 0 !important;
+    }
+
+    /* Active card in the slider */
+    .portfolio-link.active {
+        opacity: 1 !important;
+        z-index: 10;
+        transform: translateY(0) scale(1) !important;
+    }
+
+    /* Reset desktop hover */
+    .portfolio-link:hover {
+        transform: translateY(0) scale(1) !important;
+        z-index: 11;
+    }
+
+    /* === ARROW POSITIONING USING YOUR VALUES === */
+    .portfolio-navigation {
+        display: block; /* Show container */
+        position: absolute; /* Relative to portfolio-grid */
+        width: calc(100% + 40px); /* Card width + Your L/R offset (20px * 2) */
+        max-width: calc(350px + 40px); /* Max card width + Your L/R offset */
+        height: 40px; /* Arrow height */
+        /* Center horizontally */
+        left: 50%;
+        transform: translateX(-50%);
+        /* Vertical position based on your value */
+        top: 100px; /* YOUR VALUE */
+        z-index: 20;
+        margin: 0;
+        padding: 0;
+        pointer-events: none;
+        /* background-color: rgba(0, 255, 0, 0.2); */ /* Debug */
+    }
+
+
+    .portfolio-arrow {
+        display: flex; /* Show arrows */
+        position: absolute;
+        top: 290px; /* Align to parent's top (parent handles vertical) */
+        pointer-events: auto;
+        background-color: rgba(44, 44, 44, 0.5);
+        border: none;
+        color: #ffffff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #portfolio-prev {
+        left: -40px; /* YOUR VALUE */
+    }
+
+    #portfolio-next {
+        right: -40px; /* YOUR VALUE */
+    }
+
+    /* Light mode arrow fix */
+    body:not(.dark-mode) .portfolio-arrow {
+         background-color: rgba(255, 255, 255, 0.7);
+         color: #000000;
+         border: none;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 }
